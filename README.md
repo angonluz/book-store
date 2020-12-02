@@ -15,13 +15,22 @@ Para as operações requisitadas, executar os seguintes comandos:
 
 ## Endpoints requisitados
 Para acessar as informacoes de um usuario através do seu id, acessar a url "http://localhost:5000/customers/<id>"
+  
 Para acessar as informacoes de todos usuarios, acessar a url "http://localhost:5000/customers/"
-Para inserir um usuário, realizar um POST para o endpoint "http://localhost:5000/customers/" com um form data os dados necessários, exemplo:
+
+Para inserir um usuário, realizar um POST para o endpoint "http://localhost:5000/customers/" com um form data contendo os dados necessários, exemplo:
+
   name:"teste"
+  
   email:"teste@teste.com"
+  
   address:"rua"
+  
   phone:"123123123"
+  
   city:"cidade"
+  
   state:"estado"
+  
   zipcode:"1234567-89"
       
