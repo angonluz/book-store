@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  web:
+    container_name: "eldorado-web"
+    build: .
+    volumes:
+      - ./app/:/code/
+    environment:
+      APP_SETTINGS: "config.Config"
+      FLASK_ENV: "development"
+      DATABASE_URL: "postgresql+psycopg2://eldorado:12345678@db"
+    ports:
+      - "5000:5000"
+    command: ["flask", "run"]
+    networks:
+      - eldorado-network
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: "postgres:latest"
+    container_name: "eldorado-postgres"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: eldorado
+      POSTGRES_PASSWORD: "12345678"
+    networks:
+      - eldorado-network
+volumes:
+  postgres-data:  
+    driver: local
+networks:
+  eldorado-network:   
+    driver: bridge
+  
